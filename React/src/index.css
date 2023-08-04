@@ -1,0 +1,84 @@
+a{
+    text-decoration: none;
+}
+
+.registerHere{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+/* bookNow   css */
+.btndiv i{
+    padding: 5px;
+    background-color: #42a5f5;
+    border-radius: 5px;
+    margin: 5px;
+    color: white;
+}
+.totalPrice{
+    display: flex;
+    align-items: center;
+}
+.totalPrice i{
+    margin: 0 5px ;
+}
+.login{
+    margin-top: 10px;
+    color: white;
+}
+.css-ando24 {
+    display: flex;
+    align-items: center;
+}
+.logout{
+    cursor: pointer;
+}
+/* add hotel css */
+
+.AddAmenities label {
+    margin: 10px 10px 0 5px
+}
+
+/* all hotels page */
+.result{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* search form */
+.searchForm{
+    width: 600px;
+    padding-left: 10%;
+    border: 1px solid rgb(158, 151, 151);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (min-width:600px){
+    .searchForm{
+        margin-left:30% ;
+    }
+}
+
+.addHotelForm{
+    border: 1px solid rgb(158, 151, 151);
+    padding: 20px;
+    border-radius: 5px;
+}
+.AddAmenities{
+    border: 1px solid rgb(158, 151, 151);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 30px;
+
+}
+.AddAmenities .checkboxes{
+    position: absolute;
+    top: -17px;
+    background-color: white;
+    padding: 5px;
+}

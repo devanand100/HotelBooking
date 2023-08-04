@@ -1,0 +1,122 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+:root{
+    --main:#4d4deb ;
+    --primary:#5151ab;
+    --primary2: #cecbcf;
+}
+@import 'ngx-toastr/toastr';
+ 
+
+.userforms form{
+    width: 100%;
+}
+ input:focus ,select:focus {
+    /* border: 1px solid var(--primary) !important; */
+    border-color: var(--primary) !important ;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--primary) !important;
+  }
+
+body{
+    overflow-y: scroll
+}
+.dark{
+    background-color: var(--main);
+    color: white;
+}
+.dark:hover{
+    background-color: #2929ea;
+    color: white;
+}
+.dark:disabled{
+    background-color: var(--main);
+    color: white;
+}
+form{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+/* Hotel card css */
+
+.hotelCard{
+    padding: 7px;
+    display: flex;
+    flex-direction: row;
+    width: 600px ;
+    border: 1px solid rgb(182, 175, 175);
+    gap: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+}
+.hotelCard i{
+    padding-right: 5px;
+}
+.hotelCard img{
+    border: 2px solid var(--main);
+    width: 200px;
+   
+    border-radius:5px ;
+}
+.details{
+    width: 100%;
+}
+.title h4:nth-child(2){
+    white-space: nowrap;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3px 5px;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+.location{
+    color: rgb(114, 112, 112);
+    padding: 3px;
+    margin-bottom: 10px;
+}
+.facelities{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px  5px;
+    font-size: 20px;
+}
+.result,.noHotel{
+    /* border-top: 1px solid black; */
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap:40px;
+    row-gap:20px
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* data table css */
+#datatable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #datatable td, #datatable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #datatable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--main);
+    color: white;
+  }

@@ -1,0 +1,64 @@
+<div class="userforms">
+  <h5>Register Here</h5>
+<form [formGroup] = "registration" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group mt-3">
+      <label >Firstname</label>
+      <input  [class.is-invalid] = "firstName?.invalid && firstName?.touched" formControlName="firstName" type="text" class="form-control"  placeholder="Enter firstname">
+      
+        <div *ngIf="firstName?.invalid && firstName?.touched">
+            <small [class.d-none]="!firstName?.errors?.['required'] " class="text-danger">firstName is required</small>
+            <small *ngIf="(firstName?.errors?.['minlength'] )" class="text-danger">Length Should be greater than 3</small>
+            <small *ngIf="firstName?.errors?.['falsename']" class="text-danger">Admin Username not allowed</small>
+            <small *ngIf="!firstName?.errors?.['maxLength'] " class="text-danger">max length is 50 character </small>
+
+        </div>
+
+    </div>
+
+    <div class="form-group mt-3">
+        <label >LastName</label>
+        <input  [class.is-invalid] = "lastName?.invalid && lastName?.touched" formControlName="lastName" type="text" class="form-control"  placeholder="Enter lastname">
+          <div *ngIf="lastName?.invalid && lastName?.touched">
+              <small [class.d-none]="!lastName?.errors?.['required'] " class="text-danger">lastName is required</small>
+              <small *ngIf="!lastName?.errors?.['maxLength'] " class="text-danger">max length is 50 character </small>
+
+          </div>
+
+      </div>   
+
+     <div class="form-group mt-3">
+        <label >Email</label>
+        <input  [class.is-invalid] = "email?.invalid && email?.touched" formControlName="email" type="email" class="form-control"  placeholder="Enter email address">
+
+          <div *ngIf="email?.invalid && email?.touched">
+              <small [class.d-none]="!email?.errors?.['required'] " class="text-danger">email is required</small>
+              <small [class.d-none]="!email?.errors?.['pattern'] " class="text-danger">email should in correct form </small>
+          </div>
+
+      </div>  
+      
+      <div class="form-group mt-3">
+        <label >image</label>
+        <input (change)="getImage($event)" formControlName="image" name="image" type="file" class="form-control">
+      </div> 
+  
+    <div class="form-group mt-3" >
+      <label>Password</label>
+     
+      <input  formControlName="password" type="password" class="form-control"  placeholder=" password">
+        <div *ngIf="password?.invalid && password?.touched">
+          <small *ngIf="password?.errors?.['required']" class="text-danger">password is required</small>
+          <small *ngIf="password?.errors?.['pattern'] " class="text-danger">Password minimum length 8 and Must contain  one number,uppercase,lowercase,and special character </small>
+        </div>  
+    </div>
+    
+    <div class="form-group mt-3">
+    
+      <label>Confirm Password</label>
+      <input  [class.is-invalid] = "registration.errors?.['misMatch']" formControlName="confirmPassword" type="password" class="form-control"  placeholder="Confirm Password">
+      <small *ngIf="registration.errors?.['misMatch']" class="text-danger">Password Should Match</small>
+  
+    </div>
+    <button  [disabled]="!registration.valid "  class="btn dark mt-3 " type="submit">Register</button>
+  </form>
+</div>

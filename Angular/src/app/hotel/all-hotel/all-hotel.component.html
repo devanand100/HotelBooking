@@ -1,0 +1,74 @@
+<span  *ngIf=" allHotel ">
+<div *ngIf="!user?.isAdmin" class="allHotel">
+   <h4>All Hotels</h4>
+    <div class="result">
+
+        <div *ngFor="let hotel of allHotel | paginate
+        : {
+            itemsPerPage: tableSize,
+            currentPage: page,
+            totalItems: count
+          };
+    let i = index
+  " class="hotelCard">
+          <img  class="img-fluid" src={{hotel.image}}>
+          <div class="details">
+              <div class="title">
+                  <h4>{{hotel.name}}</h4>
+                  <h4><i class="fa-solid fa-indian-rupee-sign"></i>{{hotel.price}}</h4>
+              </div>
+              <div class="location"><i class="fa-solid fa-location-dot"></i>{{hotel.city}}</div>
+              Amenities
+              <div class="facelities">
+                  <div class="icons">
+                    <abbr title="Wi-fi"> <i *ngIf="hotel.Amenities.wifi" class="fa-solid fa-wifi"></i></abbr>  
+                    <abbr title="food">  <i *ngIf= "hotel.Amenities.concierge " class="fa-solid fa-bell-concierge"></i></abbr> 
+                    <abbr title="parking">  <i *ngIf= "hotel.Amenities.parking " class="fa-solid fa-square-parking"></i></abbr> 
+                    <abbr title="gym">  <i *ngIf= "hotel.Amenities.dumbbell " class="fa-solid fa-dumbbell"></i></abbr> 
+                    <abbr title="spa">  <i *ngIf= "hotel.Amenities.spa " class="fa-solid fa-spa"></i></abbr> 
+                    <abbr title="swimming pool">    <i *ngIf= "hotel.Amenities.pool " class="fa-solid fa-person-swimming"></i></abbr> 
+                  </div>
+                  <button [routerLink]="['/booking/bookNow',hotel.id]" class="btn dark">Book Now</button>
+              </div>
+          </div>
+      </div>
+      </div>
+    <div class="d-flex justify-content-center">
+      <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
+  </div>
+
+  <table id="datatable" *ngIf="user?.isAdmin" datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>price</th>
+        <th >category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of allHotel" >
+
+        <td>{{hotel.id}}</td>
+        <td><img  class="img-fluid" src={{hotel.image}}></td>
+        <td>{{hotel.name}}</td>
+        <td>{{hotel.city}}</td>
+        <td>{{hotel.address}}</td>
+        <td>{{hotel.price}}</td>
+        <td>{{hotel.category}}</td>
+        <td><i (click)="edit(hotel.id)" class="fa-solid fa-pen-to-square"></i></td>
+        <td><i (click)="delete(hotel.id)"  class="fa-solid fa-trash"></i></td>
+      </tr>
+    </tbody>
+  </table>
+</span>

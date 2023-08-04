@@ -1,0 +1,35 @@
+.amenities{
+    margin-top: 20px;
+    border: 1px solid rgb(157, 150, 150);
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    position: relative;
+    border-radius: 5px;
+}
+#amenities{
+    position: absolute;
+    background-color: white;
+    top: -14px;
+    left: 5px;
+}
+.form-check input{
+    margin-left: 10px;
+}
+@media screen and (min-width: 700px) {
+    .userforms{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    form{
+        width: 60%;
+    }
+}
+
+form{
+    padding: 30px;
+    border: 1px solid rgb(206, 201, 201);
+    border-radius: 5px;
+}   

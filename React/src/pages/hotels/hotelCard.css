@@ -1,0 +1,45 @@
+.hotelCard{
+    padding: 7px;
+    display: flex;
+    flex-direction: row;
+    width: 600px ;
+    border: 1px solid rgb(182, 175, 175);
+    gap: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+}
+.hotelCard i{
+    padding-right: 5px;
+}
+.hotelCard img{
+    border: 2px solid var(--main);
+    width: 200px;
+    border-radius:5px ;
+}
+.details{
+    width: 100%;
+}
+.title h4:nth-child(2){
+    white-space: nowrap;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3px 5px;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+.location{
+    color: rgb(114, 112, 112);
+    padding: 3px;
+    margin-bottom: 10px;
+}
+.facelities{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px  5px;
+    font-size: 20px;
+}

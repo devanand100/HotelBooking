@@ -1,0 +1,95 @@
+<div [ngClass]="!clicked ? 'search' : 'hori' ">
+<div [ngClass]="!clicked ? 'flx' : 'none' ">
+<h3>Search hotels </h3>
+<h6>Enjoy hassle free bookings </h6>
+</div>
+<form  [ngClass]="!clicked ? 'full' : 'smal' " [formGroup] = "search" (ngSubmit)="onSubmit()" novalidate>
+      <div >
+          <label >City<i class="fa-solid fa-location-dot"></i>:</label>
+          <input class="form-control" [class.is-invalid] = "city?.invalid && city?.touched" formControlName="city"  placeholder="enter Hotel city or name ">
+      </div>      
+    
+      <div>
+        <label>Category<i class="fa-solid fa-star"></i>:</label>
+        <select class="form-control" formControlName="category" >
+          <option [ngValue]= 0 selected>select category  </option>
+          <option *ngFor="let cate of categories" [ngValue]="cate" >{{ cate }}Star</option>
+        </select>
+      </div>
+    
+      <button   [disabled]="!search.valid"  class="btn dark mt-3 " type="submit">Apply Search</button>
+    </form>
+  </div>
+
+ 
+  <div class="result" *ngIf="clicked && hotels.length > 0 ">
+    <div class="sorting">
+      Sort By :
+      <select (change)="filterIt()" [(ngModel)]="sort" >
+       <option  selected>sort by price</option>
+      <option >low to high</option>
+      <option >high to low</option>
+    </select>
+  </div>
+
+  </div>
+  <div class="result" *ngIf="hotels && clicked ">
+
+    <div *ngFor="let hotel of hotels" class="hotelCard">
+
+      <img  class="img-fluid" src={{hotel.image}}>
+      <div class="details">
+          <div class="title">
+              <h4>{{hotel.name}}</h4>
+              <h4><i class="fa-solid fa-indian-rupee-sign"></i>{{hotel.price}}</h4>
+          </div>
+          <div class="location"><i class="fa-solid fa-location-dot"></i>{{hotel.city}}</div>
+          Amenities
+          <div class="facelities">
+              <div class="icons">
+                <abbr title="Wi-fi"> <i *ngIf="hotel.Amenities.wifi" class="fa-solid fa-wifi"></i></abbr>  
+                <abbr title="food">   <i *ngIf="hotel.Amenities.concierge" class="fa-solid fa-bell-concierge"></i></abbr> 
+                <abbr title="parking">  <i *ngIf="hotel.Amenities.parking" class="fa-solid fa-square-parking"></i></abbr> 
+                  <abbr title="gym">  <i *ngIf="hotel.Amenities.dumbbell" class="fa-solid fa-dumbbell"></i></abbr> 
+                    <abbr title="spa">  <i *ngIf="hotel.Amenities.spa" class="fa-solid fa-spa"></i></abbr> 
+                    <abbr title="swimming pool">    <i *ngIf="hotel.Amenities.pool" class="fa-solid fa-person-swimming"></i></abbr> 
+              </div>
+              <button [routerLink]="['/booking/bookNow',hotel.id]" class="btn dark">Book Now</button>
+          </div>
+      </div>
+  </div>
+  </div>
+
+  <div  *ngIf="!clicked " class="cityTitle">
+  <h4 >Search By Popular cities</h4>
+  <div  *ngIf=" !clicked " class="cities">
+      <div (click)="cities('goa')"  class="city city1">
+        <span class="title">
+          <h4>Goa</h4>
+        </span>
+      </div>
+      <div (click)="cities('Jaipur')" class="city city2">
+        <span class="title">
+          <h4>Jaipur</h4>
+         
+        </span>
+      </div>
+      <div (click)="cities('Manali')" class="city city3">
+        <span class="title">
+          <h4>Manali</h4>
+         
+        </span>
+      </div>
+      <div (click)="cities('Agra')" class="city city4">
+        <span class="title">
+          <h4>Agra</h4>
+        </span>
+      </div>
+  </div>
+</div>
+  <div class="noHotel" *ngIf="clicked && hotels.length === 0">
+    <h3>No Hotel Found</h3>
+  </div>
+  <div class="empty"></div>
+<router-outlet></router-outlet>
+

@@ -1,0 +1,79 @@
+<h4 class="tableTitle">All Bookings</h4>
+<div *ngIf="!isAdmin && bookings.length > 0 ">
+  <table id="datatable" datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+
+        <th>Hotel</th>
+        <th>Period</th>
+        <th>rooms</th>
+        <th>Address</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings">
+
+        <td>
+          <div class="hotelc">
+            <img src={{booking.Hotel.image}} alt="">
+            <div class="hdetail">
+              <h4> {{booking.Hotel.name}}</h4>
+              <span>
+                <i class="fa-solid fa-location-dot"></i>
+                {{booking.Hotel.city}}
+              </span>
+            </div>
+          </div>
+        </td>
+        <td>{{booking.checkIn | date:"dd/MM/yy"}}-{{booking.checkOut | date:"dd/MM/yy"}}</td>
+        <td>{{booking.rooms}}</td>
+        <td>{{booking.Hotel.address}}</td>
+        <td *ngIf="booking.Hotel.destroyTime">Not Available</td>
+        <td *ngIf="!booking.Hotel.destroyTime">Available</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<div *ngIf="isAdmin && bookings">
+  <table id="datatable" datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th>UserId</th>
+        <th>UserfullName</th>
+        <th>Useremail</th>
+        <th>Hotel Name</th>
+        <th>City</th>
+        <th>CheckIn</th>
+        <th>CheckOut</th>
+        <th>Address</th>
+        <th>rooms</th>
+        <th>total</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings">
+
+        <td>{{booking.User?.id}}</td>
+        <td>{{booking.User?.fullName}}</td>
+        <td>{{booking.User?.email}}</td>
+        <td>{{booking.Hotel.name}}</td>
+        <td>{{booking.Hotel.city}}</td>
+        <td>{{booking.checkIn | date:"dd/MM/yy"}}</td>
+        <td>{{booking.checkOut | date:"dd/MM/yy"}}</td>
+        <td>{{booking.Hotel.address}}</td>
+        <td>{{booking.rooms}}</td>
+        <td>{{booking.total}}</td>
+        <td *ngIf="booking.Hotel.destroyTime">Not Available</td>
+        <td *ngIf="!booking.Hotel.destroyTime">Available</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="NoBooking" *ngIf="bookings?.length === 0">
+  No Bookings
+  <button class="btn dark" routerLink="/home">BookNow</button>
+</div>

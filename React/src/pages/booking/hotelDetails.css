@@ -1,0 +1,57 @@
+.box{
+    border: 1px solid  rgb(110, 109, 109);
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.address{
+    display: flex;
+    flex-direction: column;
+}
+.rooms{
+    display: flex;
+}
+.rooms i {
+    padding: 5px;
+    border: 1px solid black;
+    background-color: rgb(110, 109, 109);
+    border-radius: 5px;
+    color: white;
+    margin:0 10px;
+}
+.facelitie{
+    display: flex;
+    justify-content:center;
+    align-items: flex-start;;
+    flex-direction: column;
+    /* border: 1px solid black; */
+   
+}
+.icons i{
+    padding: 5px;
+    /* margin-left: 5px; */
+    font-size: 20px;
+}
+.icons{
+    display: flex;
+    justify-content:space-around;
+}
+.total{
+    display: flex;
+    padding-right: 20px;
+}
+.totals div{
+    font-size: 20px;
+}
+.total h5{
+    padding-right: 10px;
+}
+.order{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 30px; */
+}

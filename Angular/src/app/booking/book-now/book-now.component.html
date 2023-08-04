@@ -1,0 +1,58 @@
+
+<div class="order">
+<div class="left">
+<h5>Review Your Booking</h5>
+<div *ngIf="hotel"  class="hotelCard">
+          <img  class="img-fluid" src={{hotel.image}}>
+          <div class="details">
+              <div class="title">
+                  <h4>{{hotel.name}}</h4>
+              </div>
+              <div class="location"><i class="fa-solid fa-location-dot"></i>{{hotel.city}}</div>
+              <h4>Price Per Day:<i class="fa-solid fa-indian-rupee-sign"></i>{{hotel.price}}</h4>
+          </div>
+      </div>
+      <div *ngIf="hotel" class="address box">
+        <h4>Full Address</h4>
+        {{hotel.address}}
+      </div>
+      <form class="box" [formGroup] = "bookNow" (ngSubmit)="onSubmit()" novalidate>
+        <h4>Select Checkin and CheckOut Dates</h4>
+           <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [formGroup]="bookNow" [rangePicker]="picker" [min]="minDate" >
+              <input  matStartDate formControlName="checkIn" placeholder="Start date"  >
+              <input matEndDate formControlName="checkOut" placeholder="End date" (dateChange)="totalDays()" >
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY -- MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker ></mat-date-range-picker>
+           
+            <mat-error *ngIf="bookNow.controls.checkIn.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+            <mat-error *ngIf="bookNow.controls.checkOut.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+          </mat-form-field>
+          
+        </form>
+<div class="rooms box" > <h4> Select rooms:</h4> <div class="btns"><i (click)="plus()" class="fa-solid fa-plus"></i>{{rooms}}<i (click)="minus()" class="fa-solid fa-minus"></i></div></div>
+<div *ngIf="hotel" class="facelitie box">
+  <h4 class="service">Amenities</h4>
+  <div class="icons">
+    <p  *ngIf="hotel.Amenities.wifi" > <i class="fa-solid fa-wifi"></i>Wifi</p > 
+    <p *ngIf= "hotel.Amenities.concierge ">  <i  class="fa-solid fa-bell-concierge"></i>Food</p > 
+    <p *ngIf= "hotel.Amenities.parking " >  <i class="fa-solid fa-square-parking"></i>Parking</p > 
+    <p *ngIf= "hotel.Amenities.dumbbell " >  <i  class="fa-solid fa-dumbbell"></i>Gym</p> 
+    <p *ngIf= "hotel.Amenities.spa ">  <i  class="fa-solid fa-spa"></i>Spa</p > 
+    <p *ngIf= "hotel.Amenities.pool " >   <i  class="fa-solid fa-person-swimming"></i>Swiming Pool</p > 
+  </div>
+</div>
+
+</div>
+<div class="box totals">
+  <h4>Summary</h4>
+<div class="total"><h5>Rooms:</h5>{{rooms}}</div>
+<div *ngIf="hotel" class="total"><h5>Total price:</h5><i class="fa-solid fa-indian-rupee-sign"></i>{{total}}</div>
+<div class="total"><h5>Checkin Date:</h5>{{bookNow.value.checkIn | date:"dd/MM/yy"}}</div>
+<div class="total"><h5>CheckOut Date:</h5>{{bookNow.value.checkOut |  date:"dd/MM/yy"}}</div>
+<button [disabled]="!bookNow.valid"  class="btn dark mt-3 " type="submit" (click)="onSubmit()">Confirm Booking</button> 
+</div>
+</div>

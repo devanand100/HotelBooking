@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "12345",
+    "database": "HotelBooking",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "admin",
+    "password": "PHm6asskFmOAtoM838nZQMWDU6nCFWfs",
+    "database": "hotelbooking_zyhu",
+    "host": "dpg-cgtu4502qv2fdeaf2j5g-a.oregon-postgres.render.com",
+    "dialect": "postgres",
+    "ssl": true
+  }
+}

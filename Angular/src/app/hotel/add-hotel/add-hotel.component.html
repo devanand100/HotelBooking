@@ -1,0 +1,103 @@
+<div class="userforms">
+  <h4>Add New Hotel</h4>
+
+<form [formGroup] = "addHotel" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group mt-3">
+      <label >Name:</label>
+      <input  [class.is-invalid] = "name?.invalid && name?.touched" formControlName="name" type="text" class="form-control" placeholder="Enter name">
+      <div *ngIf="name?.invalid && name?.touched">
+            <small [class.d-none]="!name?.errors?.['required'] " class="text-danger">name is required</small>
+            <small *ngIf="!name?.errors?.['maxLength'] " class="text-danger">max length is 25 character </small>
+
+      </div>
+    </div>
+      
+  
+    <div class="form-group mt-3" >
+      <label>city</label>
+
+      <input  [class.is-invalid] = "city?.invalid && city?.touched"  formControlName="city"  class="form-control" type="text"  placeholder="Enter city">
+      <div *ngIf="city?.invalid && city?.touched">
+        <small *ngIf="city?.errors?.['required']" class="text-danger">city is required </small>
+        <small *ngIf="city?.errors?.['maxLength'] " class="text-danger">max length is 25 character </small>
+     </div>
+    </div>
+  
+   
+    <div class="form-group mt-3">
+
+      <label>Address</label>
+      <input  [class.is-invalid] = "address?.invalid && address?.touched" formControlName="address" type="text" class="form-control"  placeholder="Enter full address">
+      <div *ngIf="address?.invalid && address?.touched">
+         <small *ngIf="address?.errors?.['required']" class="text-danger">Address is required </small>
+         <small *ngIf="address?.errors?.['maxLength'] " class="text-danger">max length is 200 character </small>
+
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+        <label>category</label>
+       
+        <!-- <input   [class.is-invalid] = "category?.invalid && category?.touched" formControlName="category" type="number" class="form-control"> -->
+        <select class="form-control" formControlName="category" >
+            <option value= 0 selected>select category  </option>
+            <option value= 3 > 3 Star</option>
+            <option value= 4 > 4 Star  </option>
+            <option value= 5 > 5 Star  </option>
+          </select>
+        <div *ngIf="category?.invalid && category?.touched">
+        <small *ngIf="category?.errors?.['wrong']" class="text-danger">category is required</small>
+        </div>
+      </div>
+
+    <div class="form-group mt-3">
+        <label>price</label>
+        <input   [class.is-invalid] = "price?.invalid && price?.touched" formControlName="price" type="number" class="form-control"  placeholder="Enter price">
+        <div *ngIf="price?.invalid && price?.touched">
+        <small *ngIf="price?.errors?.['required']" class="text-danger">price is required</small>
+        <small *ngIf="price?.errors?.['min']" class="text-danger">minimum price is 1 </small>
+
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label >image</label>
+        <input (change)="getImage($event)" accept="image/*"  formControlName="image" name="image" type="file" class="form-control">
+      </div>
+ <div formGroupName = "Amenities" class="amenities">
+    
+    <span id="amenities">Amenities</span>
+    <div class="form-check mt-3">
+      <label for="wifi">wifi</label>
+      <input id="wifi" formControlName="wifi" type="checkbox" class="form-check-input" >
+    </div>
+  
+    <div class="form-check mt-3" >
+      <label for="concierge">Food</label>
+      <input id="concierge" formControlName="concierge" type="checkbox" class="form-check-input">
+    </div>
+  
+    <div class="form-check mt-3" >
+        <label for="dumbbell">Gym</label>
+        <input id="dumbbell" formControlName="dumbbell" type="checkbox" class="form-check-input">
+      </div>
+
+      <div class="form-check mt-3" >
+        <label for="parking">parking</label>
+        <input id="parking"  formControlName="parking" type="checkbox" class="form-check-input">
+      </div>
+
+      <div class="form-check mt-3" >
+        <label for="spa">spa</label>
+        <input id="spa" formControlName="spa" type="checkbox" class="form-check-input">
+      </div>
+
+      <div class="form-check mt-3" >
+        <label for="pool">pool</label>
+        <input id="pool" formControlName="pool" type="checkbox" class="form-check-input">
+      </div>
+      
+  </div>
+    <button [disabled]="!addHotel.valid"  class="btn dark mt-3 " type="submit">Add</button> 
+  </form>
+</div>

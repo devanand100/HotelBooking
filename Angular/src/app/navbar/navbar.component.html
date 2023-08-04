@@ -1,0 +1,24 @@
+<nav id="nav" (click)="showlink($event)">
+    <div  id="head"  class="head">
+        <h3 routerLink="/home"><i class="fa-solid fa-hotel"></i>Hotel</h3>
+        <div id="userprofile"  *ngIf="isLogedIn"> 
+            <img id="usrimg"  src={{user?.image}} alt="" (click)="showBox()">
+            <div *ngIf="boxState" class="box">
+                <li><i class="fa-solid fa-user"></i>{{user?.fullName}} </li>
+
+                <li><i class="fa-solid fa-envelope"></i>{{user?.email}}</li>
+                <li (click)="logOut()"><i class="fa-solid fa-right-from-bracket"></i>logOut</li>
+            </div>
+        </div>
+        <span id="bar"  class="bar"><i id="bar"  class="fa-sharp fa-solid fa-bars"></i></span>
+    </div>
+<div id="hov" [ngStyle]="style"></div>  
+
+    <ul  id="links" [class.show-links]="show" class="links">
+        <li><a routerLink="/home" appHover routerLinkActive="active" >Home</a></li>
+        <li *ngIf="isLogedIn && isAdmin" ><a routerLink="/hotel/addHotel" appHover routerLinkActive="active" ><i class="fa-solid fa-plus"></i>New Hotel</a></li>
+        <li  ><a routerLink="/hotel/allHotel" appHover routerLinkActive="active" >AllHotels</a></li>
+        <li *ngIf="isLogedIn" ><a routerLink="/booking/bookings" appHover routerLinkActive="active" >bookings</a></li>
+        <li *ngIf="!isLogedIn" ><a routerLink="/login"   appHover >logIn</a></li>
+    </ul>
+</nav>

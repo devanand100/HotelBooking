@@ -1,0 +1,15 @@
+@media screen and (min-width: 700px) {
+    .userforms{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    form{
+        width: 60%;
+    }
+}
+form{
+    padding: 20px;
+    border:1px solid rgb(234 216 216);
+    border-radius: 15px;
+}

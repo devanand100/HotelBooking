@@ -1,0 +1,174 @@
+form{
+    border: 1px solid rgb(205, 198, 198);
+    padding: 15px;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    margin-top: 30px;
+    position: relative;
+    z-index: 3;
+    background-color: white;
+
+}
+
+form div{
+    position: relative;
+}
+.full{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 566px;
+}
+
+.full  input,.full  select{
+    width: 100%;
+    width: 500px;
+    padding: 10px 0 10px 25px;
+    border: 1px solid rgb(205, 198, 198);
+    margin: 10px 10px;
+    border-radius: 5px;
+}
+.search{
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    background: url(../assets/Goa.jpg);
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    padding-bottom: 20px;
+}
+form ::placeholder {
+ padding-left: 5px;
+}
+form i {
+    color: var(--main); 
+    padding-left: 5px;
+    position: absolute;
+    left:12px;
+    top:50px;
+}
+
+/* form button{
+    position: absolute;
+    bottom: -25px;
+    left: 40%; 
+    z-index: 77;
+    padding: 10px;
+    border-radius: 20px;
+    width: 30px;
+} */
+.none{
+    display: none;
+}
+.hori{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.smal {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.smal button{
+    margin-top: 0 !important;
+    padding: 5px 10px !important;
+}
+.smal label{
+    display: none;
+}
+.smal  input,.smal  select{
+    padding: 10px 0 10px 25px;
+    border-radius: 5px;
+    padding: 8px;
+    width: 300px;
+}
+
+/* Hotel card css */
+.flx{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    color: white;
+}
+.sorting select{
+    padding: 10px;
+    border-radius: 5px;
+}
+abbr{
+    cursor:context-menu;
+}
+
+/* Cities Card Design */
+.cities{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
+    margin: 30px 20px;
+}
+.city{
+    position: relative;
+    width: 260px;
+    height: 320px;
+    border-radius: 5px;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.city .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position:absolute;
+    bottom: 7%;
+    color: white;
+    letter-spacing: 5px;
+    z-index: 33;
+}
+
+.city1{
+    background-image:
+    linear-gradient(180deg,rgb(16 46 214 / 0%), rgb(64 71 165 / 52%), rgba(11, 11, 11, 0.8)),
+    url('../assets/Goa.jpg');
+}
+.city2{
+    background-image:
+    linear-gradient(180deg, rgb(16 46 214 / 0%), rgb(64 71 165 / 52%), rgba(11, 11, 11, 0.8)),
+    url('../assets/jaipur.jpg');
+}
+.city3{
+    background-image:
+    linear-gradient(180deg,rgb(16 46 214 / 0%), rgb(64 71 165 / 52%), rgba(11, 11, 11, 0.8)),
+    url('../assets/manali.jpg')
+}
+.city4{
+    background-image:
+    linear-gradient(180deg, rgb(16 46 214 / 0%), rgb(64 71 165 / 52%), rgba(11, 11, 11, 0.8)),
+    url('../assets/agra.jpg');
+}
+.title p{
+    font-size: 15px;
+    color: rgb(168 161 161);
+}
+.empty{
+    height: 100px;
+}
+.cityTitle h4 {
+    text-align: center;
+    margin-top: 20px;
+}
+/* responsive */
+@media screen and (max-width: 800px) {
+    .full{
+        width: 93% !important;
+    }
+    .full  input,.full  select{
+        width: 95% !important;
+    }
+}
