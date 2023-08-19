@@ -17,7 +17,7 @@ const cors=require('cors');
 
 app.use(cors({
     credentials:true ,
-    origin:['http://localhost:4000',"http://localhost:4200","http://localhost:5173","http://localhost:5174","https://hotelbooking-330a5.web.app"]
+    origin:['http://localhost:4000',"http://localhost:4200","http://localhost:5173","http://localhost:5174","https://hotelbooking-330a5.web.app","https://hotel-9228b.web.app"]
     
 }))
 app.use(cookieParser());
