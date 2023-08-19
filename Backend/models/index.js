@@ -11,12 +11,15 @@ const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 console.log(config);
-let sequelize =new Sequelize('postgres://devanand:ToKVx3lMjInMTiv6ZIUS2wSnipvMVx5u@dpg-cjg7f8k1ja0c73ah2h5g-a/hotelbooking_4pj2
-',{
-  dialectOptions: {
-    ssl: true
-  }
-});
+let sequelize =  new Sequelize('postgres://devanand:ToKVx3lMjInMTiv6ZIUS2wSnipvMVx5u@dpg-cjg7f8k1ja0c73ah2h5g-a/hotelbooking_4pj2',{dialectOptions: {
+        ssl:  {
+          require: true,
+          rejectUnauthorized: false
+        }
+      }
+    })
+
+
 
 // if (config.use_env_variable) {
 //   sequelize = new Sequelize(process.env[config.use_env_variable], config);
@@ -25,14 +28,15 @@ let sequelize =new Sequelize('postgres://devanand:ToKVx3lMjInMTiv6ZIUS2wSnipvMVx
 //   console.log(config)
 //   sequelize = new Sequelize(config.database, config.username, config.password,{
 //     dialect: 'postgres',
-//     dialectOptions: {
-//       ssl:  {
-//         require: true,
-//         rejectUnauthorized: false
-//       }
-//     }
+//     // dialectOptions: {
+//     //   ssl:  {
+//     //     require: true,
+//     //     rejectUnauthorized: false
+//     //   }
+//     // }
 //   });
 // }
+
 
 fs
   .readdirSync(__dirname)
