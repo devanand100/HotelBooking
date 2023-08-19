@@ -1,5 +1,6 @@
 const db = require("../models");
-const Hotel = db.Hotel;
+const {Hotel} = require("../models")
+// const Hotel = db.Hotel;
 const Amenitie = db.Amenities
 const asyncHandler = require('express-async-handler');
 const { Op, Sequelize } = require("sequelize");
@@ -30,7 +31,7 @@ const searchHotels = asyncHandler(async (req,res) => {
 
 const addHotel = asyncHandler(async (req,res) => {
     
-    console.log(req.body)
+    
     let {path} = req.file
 
     if(!req.data.isAdmin){

@@ -13,13 +13,14 @@ module.exports = {
     }
   },
   test: {
-    username: process.env.CI_DB_USERNAME,
-    password: process.env.CI_DB_PASSWORD,
-    database: process.env.CI_DB_NAME,
-    host: '127.0.0.1',
-    port: 3306,
-    dialect: 'mysql',
+    username:'devanand',
+    password:'ToKVx3lMjInMTiv6ZIUS2wSnipvMVx5u',
+    database: 'hotelbooking_4pj2',
+    host:'dpg-cjg7f8k1ja0c73ah2h5g-a',
+    port: 5432,
+    dialect: 'postgres',
     dialectOptions: {
+      ssl:true,
       bigNumberStrings: true
     }
   },
@@ -29,12 +30,12 @@ module.exports = {
     database: process.env.PROD_DB_NAME,
     host: process.env.PROD_DB_HOSTNAME,
     port: process.env.PROD_DB_PORT,
-    dialect: 'mysql',
+    dialect: 'postgres',
     dialectOptions: {
       bigNumberStrings: true,
-      ssl: {
-        ca: fs.readFileSync(__dirname + '/mysql-ca-main.crt')
-      }
+      // ssl: {
+      //   ca: fs.readFileSync(__dirname + '/mysql-ca-main.crt')
+      // }
     }
   }
 };
