@@ -1,4 +1,5 @@
 const db = require("../models");
+
 const Booking = db.Booking;
 const User = db.User;
 const Hotel = db.Hotel
@@ -29,12 +30,10 @@ const bookings = asyncHandler(async(req,res)=>{
         //     exclude:["createdAt","updatedAt"]
         // },
     })
-    console.log(Allbookings)
     return res.status(200).json(Allbookings)
 })
 
 const addBookings = asyncHandler(async(req,res)=>{
-    console.log(req.body)
     const uid = Number(req.params.id);
    
     const { h_id, checkOut,checkIn,rooms ,total} = req.body;
@@ -74,7 +73,7 @@ const addBookings = asyncHandler(async(req,res)=>{
       res.status(200).json(newBooking)
 })
 
-const Allbookings = asyncHandler(async(req,res)=>{
+const Allbookings = asyncHandler(async(req,res)=>  {
     
     if(!req.data.isAdmin){
         res.status(403)
@@ -97,6 +96,7 @@ const Allbookings = asyncHandler(async(req,res)=>{
     })
     return res.status(200).json(Allbookings)
 })
+
 
 module.exports = {
     bookings,

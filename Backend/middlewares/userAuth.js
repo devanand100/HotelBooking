@@ -13,7 +13,7 @@ const validateUser = asyncHandler( async(req,res,next)=>{
         try{
             // token = header.split(" ")[1];
             decoded = jwt.verify(cookie,process.env.ACCESS_TOKEN_SECRET)
-                console.log(decoded)
+                // console.log(decoded)
             const user = await User.findOne({
                 where:{
                     id : decoded.data.id 

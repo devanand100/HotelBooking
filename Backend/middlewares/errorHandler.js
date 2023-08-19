@@ -4,10 +4,8 @@ const errorHandler = (err,req,res,next) =>{
     
     const errstatus = res.statusCode || 500;
     const errmsg = err.message || "somthing went wrong"
-    console.log("///////////////////////////////")
-    console.log( err.stack)
-    console.log("///////////////////////////////")
     console.log(err)
+    console.log( err.stack)
    
 // console.log( "message",errmsg,
 //     "statusCode",errstatus,

@@ -51,9 +51,9 @@ const getUserById = asyncHandler( async (req, res) => {
 const registration = asyncHandler(async (req, res) => {
 
     // console.log(req)
-    console.log(req.File)
-    console.log(req.file)
-    console.log(req.body)
+    // console.log(req.File)
+    // console.log(req.file)
+    // console.log(req.body)
 
     let {path} = req.file
 
@@ -86,14 +86,12 @@ const registration = asyncHandler(async (req, res) => {
         updatedAt: new Date(),
     }); 
     
-
-
     res.json("ok");
 });
 
 const login = asyncHandler(async (req, res) => {
     
-    console.log("body",req.body)
+    // console.log("body",req.body)
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -135,7 +133,13 @@ const login = asyncHandler(async (req, res) => {
 });
 
 const currentUser =asyncHandler ( async(req,res)=>{
-    res.json(req.data);
+
+    const user = await User.findOne({
+        where:{id : req.data.id},
+        attributes:{exclude:['password','createdAt','updatedAt']}
+    })
+
+    res.json(user);
 })
 
 const logOut =asyncHandler ( async(req,res)=>{
@@ -163,10 +167,14 @@ const tables =asyncHandler ( async(req,res)=>{
   
 
 const Image = asyncHandler (async(req,res)=>{
-    console.log(req.query.id)
+    // console.log(req.query.id)
     const result  = await getImage(req.query.id);
-    console.log(result)
+    // console.log(result)
     res.json(result)
+})
+
+const getUserDetails = asyncHandler (async (req ,res) => {
+    res.json(req.data);
 })
 
 module.exports = {
