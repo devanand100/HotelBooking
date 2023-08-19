@@ -11,24 +11,28 @@ const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 console.log(config);
-let sequelize;
+let sequelize =new Sequelize('postgres://devanand:ToKVx3lMjInMTiv6ZIUS2wSnipvMVx5u@dpg-cjg7f8k1ja0c73ah2h5g-a/hotelbooking_4pj2
+',{
+  dialectOptions: {
+    ssl: true
+  }
+});
 
-
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
+// if (config.use_env_variable) {
+//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+// } else {
   
-  console.log(config)
-  sequelize = new Sequelize(config.database, config.username, config.password,{
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl:  {
-        require: true,
-        rejectUnauthorized: false
-      }
-    }
-  });
-}
+//   console.log(config)
+//   sequelize = new Sequelize(config.database, config.username, config.password,{
+//     dialect: 'postgres',
+//     dialectOptions: {
+//       ssl:  {
+//         require: true,
+//         rejectUnauthorized: false
+//       }
+//     }
+//   });
+// }
 
 fs
   .readdirSync(__dirname)
